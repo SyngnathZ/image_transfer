@@ -9,13 +9,13 @@ from image_transfer.msg import Image
 
 def callback(data):
     bridge = cv_bridge.CvBridge()
-    cv_image = bridge.imgmsg_to_cv2(data,"bgr8")
+    cv_image = bridge.imgmsg_to_cv2(data,"mono8")
     cv2.imshow("Received!!",cv_image)
     cv2.waitKey(0)
 
 def showImage():
     rospy.init_node('midTransfer',anonymous = True)
-    rospy.Subscriber('midTransfer', Image, callback)
+    rospy.Subscriber('midTransfer_Gray', Image, callback)
     rospy.spin()
 
 

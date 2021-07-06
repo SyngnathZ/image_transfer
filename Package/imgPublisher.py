@@ -24,7 +24,7 @@ def pubImage():
     while not rospy.is_shutdown():
         for imagepath in gt_imdb:
             image = cv2.imread(imagepath)
-            image = cv2.resize(image,(900,450))
+            #image = cv2.resize(image,(900,450))
             pub.publish(bridge.cv2_to_imgmsg(image,"bgr8"))
             #cv2.imshow("lala",image)
             #cv2.waitKey(0)
